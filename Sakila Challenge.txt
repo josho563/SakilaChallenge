@@ -71,7 +71,11 @@ select count(country) from country;
 
 select name from language order by name desc; 
 
-
+select first_name, last_name
+from actor
+where last_name
+like '%son'
+order by last_name desc;
 
 
 
