@@ -1,0 +1,83 @@
+use sakila;
+select * from actor;
+
+select * from actor where first_name='john';
+
+select * from actor;
+
+select * from actor where last_name='Neeson';
+
+select *
+from actor
+where actor_id % 10 = 0;
+
+select description from film where film_id='100';
+
+select * from film where rating='r';
+
+select * from film where rating!='r';
+
+select title, length from film order by length limit 10;
+
+select title, length from film
+ where length=(
+select max(length)
+from film
+);
+
+select title, special_features from film where special_features like'%deleted scenes';
+
+select last_name from actor GROUP BY last_name HAVING COUNT(last_name)=1;
+
+select last_name from actor group by last_name having count(last_name)>1 order by count(last_name) desc;
+
+SELECT a.first_name, a.last_name, f.film_id
+From actor a 
+Join film_actor f 
+on f.actor_ID=a.actor_id 
+group by f.actor_id
+order by count(f.actor_id) desc limit 1;
+
+select avg(length) from film;
+
+select category.name,avg(film.length)
+from category category
+join film_category film_category
+on film_category.category_id=category.category_id
+join film film
+on film.film_id=film_category.film_id
+group by category.name;
+
+select title from film where description like '%robot%';
+
+select title from film where description like '%robot%';
+
+select * from film_list;
+select count(*) from film where release_year like '%2010%';
+
+select film.category, filcat.category_id
+from film_category filmcat
+join film_category=filmcat.category_id
+on filmcat.category_id=film.category_id;
+
+select category, title from film_list where category like 'horror';
+
+select name, id from staff_list where ID like '2';
+
+select * from film_list;
+select title, actors from film_list where actors like '%fred%';
+
+select count(country) from country;
+
+select name from language order by name desc; 
+
+
+
+
+
+
+
+
+
+
+
